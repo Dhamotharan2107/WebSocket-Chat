@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <h1>Enter Chat Room</h1>
+    <form action="">
+        <label for="room_name">Room Name:</label>
+        <input id="room_name" type="text" size="100">
+        <label for="username">Username:</label>
+        <input id="username" type="text" size="20" value="Anonymous">
+        <button type="button" onclick="enterRoom()">Enter</button>
+    </form>
+
+    <script type="text/javascript">
+        function enterRoom() {
+            const roomName = document.querySelector("#room_name").value;
+            const username = document.querySelector("#username").value;
+            
+            // Store the username in a session or cookie
+            document.cookie = "username=" + encodeURIComponent(username);
+
+            // Navigate to the chat room
+            window.location.href = `/chat/${roomName}/`;
+        }
+    </script>
+</body>
+</html>
